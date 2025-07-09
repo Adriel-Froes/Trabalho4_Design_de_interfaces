@@ -1,0 +1,664 @@
+/* Estilos Globais e Reset */
+body {
+    font-family: 'Open Sans', sans-serif; 
+    margin: 0;
+    /* Ajuste o padding-top do body para a altura do seu header fixo */
+    /* Altura do navbar Bootstrap é geralmente ~56px, mais um offset */
+    padding-top: 70px; /* Definido para corresponder à altura do header + um pouco mais */
+    background-color: rgb(240, 248, 255); 
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Para garantir o scroll suave em todos os navegadores */
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif; 
+    color: #0056b3; 
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out; 
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header (ajustado para Bootstrap Navbar) */
+header {
+    /* As classes Bootstrap .navbar, .fixed-top já cuidam da maioria disso */
+    /* Removido padding, display, flex-direction, align-items, box-shadow */
+    /* background-color é definido pela classe Bootstrap .bg-light */
+    /* position: fixed, top: 0, left: 0, width: 100%, z-index: 100 são definidos por .fixed-top */
+    /* height: 80px; e box-sizing: border-box; não são necessários aqui, mas podem ser adicionados para controle extra */
+}
+
+.navbar-brand {
+    font-family: 'Roboto', sans-serif; 
+    font-size: 1.8em; /* Ajuste o tamanho da fonte para o brand */
+    color: #007bff !important; /* Força a cor do brand */
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #007bff !important; /* Cor dos links do menu */
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #e9ecef; 
+    color: #0056b3 !important; 
+    text-decoration: none; 
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+section {
+    background-color: #fff;
+    margin-bottom: 40px; 
+    padding: 30px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* --- Adicionado para corrigir a rolagem de âncoras e garantir altura mínima --- */
+    scroll-margin-top: 70px; /* Altura do navbar Bootstrap + offset */
+    min-height: calc(100vh - 100px); /* Garante que a seção tenha altura mínima de uma tela menos o header e footer */
+    justify-content: center; /* Centraliza o conteúdo verticalmente na seção */
+
+    /* Scroll-Driven Animation */
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: entry 25% cover 50%;
+    opacity: 0; /* Começa invisível */
+}
+
+/* Opcional: Remover animation-timeline da primeira seção se não quiser animá-la */
+#sobre {
+    animation: none; /* Desativa a animação para a primeira seção */
+    opacity: 1; /* Garante que a primeira seção seja visível */
+    min-height: auto; /* Remove a altura mínima da primeira seção se ela for curta */
+}
+
+
+section h2 {
+    font-size: 2em; 
+    margin-bottom: 25px;
+}
+
+.conteudo-secao {
+    max-width: 100%; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.conteudo-secao img {
+    max-width: 80%; 
+    height: auto;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.conteudo-secao p {
+    line-height: 1.8; 
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 800px; 
+}
+
+/* Lista de Livros */
+.lista-livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.lista-livros li {
+    text-align: center;
+    background-color: #f8f9fa; 
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out; 
+}
+
+.lista-livros li:hover {
+    transform: translateY(-5px); 
+}
+
+.lista-livros li img {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover; 
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.lista-livros li h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #343a40;
+}
+
+/* Formulários */
+.formularios-container {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 30px;
+    width: 100%;
+    max-width: 900px; 
+    margin-top: 20px;
+}
+
+.formulario-cliente, .formulario-newsletter {
+    background-color: #f3f3f3;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left; 
+}
+
+.formulario-cliente fieldset, .formulario-newsletter fieldset {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.formulario-cliente legend, .formulario-newsletter legend {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #0056b3;
+    padding: 0 10px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.form-group small {
+    color: #6c757d;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+.formulario-cliente button, .formulario-newsletter button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; 
+    width: fit-content; 
+    margin: 20px auto 0; 
+}
+
+.formulario-cliente button:hover, .formulario-newsletter button:hover {
+    background-color: #0056b3;
+}
+
+/* Galeria de Fotos */
+.galeria-fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    grid-auto-rows: minmax(200px, auto); 
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+    min-height: 70vh; 
+    max-width: 1200px; 
+}
+
+.foto-item {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-height: 200px; 
+}
+
+.foto-1 { background-image: url(/img/galeriaacao.jpg); }
+.foto-2 { background-image: url(/img/galeriaaventq.jpeg); }
+.foto-3 { background-image: url(/img/galeriacomedia.jpg); }
+.foto-4 { background-image: url(/img/galeriafic.jpg); }
+.foto-5 { background-image: url(/img/galeriaterr.jpg); }
+
+/* Novas Seções e Elementos */
+
+/* Estilos para a Seção de Efeitos Visuais */
+#efeitos {
+    padding-top: 50px; /* Adiciona um pouco mais de padding para conteúdo extra */
+    padding-bottom: 50px;
+}
+
+.animation-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Animação com @keyframes e 'animation' */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 123, 255, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 123, 255, 1);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 123, 255, 0.7);
+    }
+}
+
+.animated-box {
+    width: 180px;
+    height: 180px;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    animation: pulse 2s infinite ease-in-out; /* Aplica a animação */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Impede que encolha em telas pequenas */
+}
+
+/* Animação com 'transition' */
+.transition-box {
+    width: 180px;
+    height: 180px;
+    background-color: #28a745; /* Cor inicial */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease; /* Propriedades com transição */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    flex-shrink: 0; /* Impede que encolha em telas pequenas */
+}
+
+.transition-box:hover {
+    background-color: #218838; /* Cor ao passar o mouse */
+    transform: translateY(-10px) scale(1.02); /* Movimento e leve aumento de escala */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.long-text {
+    max-width: 900px;
+    text-align: left;
+    margin-top: 30px;
+    padding: 0 15px;
+}
+
+.scroll-animation-trigger {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #ffc107;
+    color: #333;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: bounce-in linear forwards; /* Exemplo de animação acionada por scroll */
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Animação para scroll-driven animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Footer */
+footer {
+    background-color: #212529; 
+    color: #f8f9fa; 
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9em;
+    margin-top: 30px;
+}
+
+/* Media Queries (Mantidos do seu código original com pequenas otimizações) */
+
+@media (min-width: 768px) {
+    header {
+        /* Bootstrap cuida da maioria do layout do header em telas maiores */
+    }
+
+    .navbar-brand {
+        font-size: 2.5em; /* Aumenta o tamanho da fonte para o brand em telas maiores */
+    }
+
+    .navbar-nav .nav-link {
+        margin: 0 10px; /* Ajusta o espaçamento entre os links */
+    }
+
+    .conteudo-secao {
+        flex-direction: row;
+        text-align: left;
+        justify-content: center; 
+        align-items: center;
+        gap: 40px; 
+    }
+
+    .conteudo-secao img {
+        max-width: 40%;
+        margin-bottom: 0;
+    }
+
+    .conteudo-secao p {
+        text-align: left;
+        max-width: 50%; 
+        margin-bottom: 0;
+    }
+    
+    #servicos .conteudo-secao {
+        flex-direction: column;
+    }
+
+    #servicos .conteudo-secao p {
+        max-width: 800px; 
+        text-align: center;
+    }
+    
+    .formularios-container {
+        grid-template-columns: 1fr 1fr; 
+        gap: 40px;
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .form-group.full-width {
+        grid-column: 1 / -1; 
+    }
+    
+    .galeria-fotos {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        grid-auto-rows: 250px; 
+    }
+
+    .foto-1 { grid-column: span 2; grid-row: span 2; } 
+    .foto-3 { grid-row: span 2; } 
+    .foto-5 { grid-column: span 2; } 
+
+    /* Ajustes para a seção de efeitos em telas maiores */
+    .animation-container {
+        flex-direction: row;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    main {
+        max-width: 1400px; 
+    }
+
+    section {
+        padding: 40px; 
+    }
+
+    .lista-livros {
+        grid-template-columns: repeat(5, 1fr); 
+    }
+
+    .formularios-container {
+        max-width: 1100px; 
+    }
+
+    .galeria-fotos {
+        grid-template-columns: repeat(6, 1fr); 
+        grid-auto-rows: 280px; 
+        min-height: 70vh; 
+    }
+
+    .foto-1 { grid-column: span 3; grid-row: span 2; }
+    .foto-2 { grid-column: span 2; grid-row: span 1; }
+    .foto-3 { grid-column: span 1; grid-row: span 2; }
+    .foto-4 { grid-column: span 2; grid-row: span 1; }
+    .foto-5 { grid-column: span 2; grid-row: span 1; }
+}
+
+
+@media (max-width: 991px) { /* Para o menu hamburguer do Bootstrap */
+    .navbar-collapse {
+        background-color: #fff;
+        border-top: 1px solid #eee;
+    }
+    .navbar-nav {
+        padding: 10px 0;
+    }
+    .navbar-nav .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 60px; /* Ajuste para o header menor em mobile */
+    }
+
+    section {
+        scroll-margin-top: 60px; /* Ajuste para o header menor em mobile */
+        padding: 20px 15px;
+    }
+
+    .navbar-brand {
+        font-size: 1.5em;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul {
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .conteudo-secao img {
+        max-width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .lista-livros {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+        gap: 15px;
+    }
+
+    .lista-livros li img {
+        height: 180px; 
+    }
+    
+    .formularios-container {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-fotos {
+        grid-template-columns: 1fr; 
+        grid-auto-rows: 250px; 
+        gap: 10px;
+    }
+
+    .foto-item {
+        min-height: 200px;
+    }
+
+    /* Ajustes para a seção de efeitos em telas menores */
+    .animated-box, .transition-box {
+        width: 150px;
+        height: 150px;
+        font-size: 1em;
+    }
+}
+
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    section {
+        padding: 15px 10px;
+    }
+
+    .conteudo-secao img {
+        max-width: 100%;
+    }
+
+    .lista-livros {
+        grid-template-columns: 1fr; 
+    }
+
+    .lista-livros li img {
+        height: 200px;
+    }
+
+    .formularios-container {
+        padding: 0 10px; 
+    }
+
+    .formulario-cliente, .formulario-newsletter {
+        padding: 15px;
+    }
+
+    .galeria-fotos {
+        grid-template-columns: 1fr; 
+        grid-auto-rows: 200px; 
+        gap: 8px;
+    }
+}
