@@ -278,11 +278,11 @@ section h2 {
     min-height: 200px; 
 }
 
-.foto-1 { background-image: url(img/galeriaacao.jpg); }
-.foto-2 { background-image: url(img/galeriaaventq.jpeg); }
-.foto-3 { background-image: url(img/galeriacomedia.jpg); }
-.foto-4 { background-image: url(img/galeriafic.jpg); }
-.foto-5 { background-image: url(img/galeriaterr.jpg); }
+.foto-1 { background-image: url(/img/galeriaacao.jpg); }
+.foto-2 { background-image: url(/img/galeriaaventq.jpeg); }
+.foto-3 { background-image: url(/img/galeriacomedia.jpg); }
+.foto-4 { background-image: url(/img/galeriafic.jpg); }
+.foto-5 { background-image: url(/img/galeriaterr.jpg); }
 
 
 
