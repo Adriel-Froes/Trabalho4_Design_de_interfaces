@@ -1,14 +1,12 @@
-/* Estilos Globais e Reset */
 body {
     font-family: 'Open Sans', sans-serif; 
     margin: 0;
-    /* Ajuste o padding-top do body para a altura do seu header fixo */
-    /* Altura do navbar Bootstrap é geralmente ~56px, mais um offset */
-    padding-top: 70px; /* Definido para corresponder à altura do header + um pouco mais */
+    
+    padding-top: 70px; 
     background-color: rgb(240, 248, 255); 
     color: #333;
     line-height: 1.6;
-    scroll-behavior: smooth; /* Para garantir o scroll suave em todos os navegadores */
+    scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
@@ -35,19 +33,15 @@ ul {
     margin: 0;
 }
 
-/* Header (ajustado para Bootstrap Navbar) */
+
 header {
-    /* As classes Bootstrap .navbar, .fixed-top já cuidam da maioria disso */
-    /* Removido padding, display, flex-direction, align-items, box-shadow */
-    /* background-color é definido pela classe Bootstrap .bg-light */
-    /* position: fixed, top: 0, left: 0, width: 100%, z-index: 100 são definidos por .fixed-top */
-    /* height: 80px; e box-sizing: border-box; não são necessários aqui, mas podem ser adicionados para controle extra */
+   
 }
 
 .navbar-brand {
     font-family: 'Roboto', sans-serif; 
-    font-size: 1.8em; /* Ajuste o tamanho da fonte para o brand */
-    color: #007bff !important; /* Força a cor do brand */
+    font-size: 1.8em; 
+    color: #007bff !important; 
     font-weight: bold;
 }
 
@@ -55,7 +49,7 @@ header {
     padding: 8px 12px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    color: #007bff !important; /* Cor dos links do menu */
+    color: #007bff !important; 
     font-weight: 600;
 }
 
@@ -65,7 +59,7 @@ header {
     text-decoration: none; 
 }
 
-/* Main Content */
+
 main {
     padding: 20px;
     max-width: 1200px; 
@@ -82,23 +76,20 @@ section {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* --- Adicionado para corrigir a rolagem de âncoras e garantir altura mínima --- */
-    scroll-margin-top: 70px; /* Altura do navbar Bootstrap + offset */
-    min-height: calc(100vh - 100px); /* Garante que a seção tenha altura mínima de uma tela menos o header e footer */
-    justify-content: center; /* Centraliza o conteúdo verticalmente na seção */
+   
+    scroll-margin-top: 70px; 
+    min-height: calc(100vh - 100px); 
+    justify-content: center; 
 
-    /* Scroll-Driven Animation */
-    animation: fade-in linear forwards;
-    animation-timeline: view();
-    animation-range: entry 25% cover 50%;
-    opacity: 0; /* Começa invisível */
+    
+    opacity: 1; 
 }
 
-/* Opcional: Remover animation-timeline da primeira seção se não quiser animá-la */
+
 #sobre {
-    animation: none; /* Desativa a animação para a primeira seção */
-    opacity: 1; /* Garante que a primeira seção seja visível */
-    min-height: auto; /* Remove a altura mínima da primeira seção se ela for curta */
+    animation: none; 
+    opacity: 1; 
+    min-height: auto; 
 }
 
 
@@ -131,7 +122,7 @@ section h2 {
     max-width: 800px; 
 }
 
-/* Lista de Livros */
+
 .lista-livros {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -266,7 +257,7 @@ section h2 {
     background-color: #0056b3;
 }
 
-/* Galeria de Fotos */
+
 .galeria-fotos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
@@ -293,11 +284,11 @@ section h2 {
 .foto-4 { background-image: url(/img/galeriafic.jpg); }
 .foto-5 { background-image: url(/img/galeriaterr.jpg); }
 
-/* Novas Seções e Elementos */
 
-/* Estilos para a Seção de Efeitos Visuais */
+
+
 #efeitos {
-    padding-top: 50px; /* Adiciona um pouco mais de padding para conteúdo extra */
+    padding-top: 50px; 
     padding-bottom: 50px;
 }
 
@@ -313,7 +304,7 @@ section h2 {
     max-width: 800px;
 }
 
-/* Animação com @keyframes e 'animation' */
+
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -341,16 +332,16 @@ section h2 {
     font-size: 1.1em;
     font-weight: bold;
     text-align: center;
-    animation: pulse 2s infinite ease-in-out; /* Aplica a animação */
+    animation: pulse 2s infinite ease-in-out; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0; /* Impede que encolha em telas pequenas */
+    flex-shrink: 0; 
 }
 
-/* Animação com 'transition' */
+
 .transition-box {
     width: 180px;
     height: 180px;
-    background-color: #28a745; /* Cor inicial */
+    background-color: #28a745; 
     color: white;
     display: flex;
     align-items: center;
@@ -359,15 +350,15 @@ section h2 {
     font-size: 1.1em;
     font-weight: bold;
     text-align: center;
-    transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease; /* Propriedades com transição */
+    transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    flex-shrink: 0; /* Impede que encolha em telas pequenas */
+    flex-shrink: 0; 
 }
 
 .transition-box:hover {
-    background-color: #218838; /* Cor ao passar o mouse */
-    transform: translateY(-10px) scale(1.02); /* Movimento e leve aumento de escala */
+    background-color: #218838; 
+    transform: translateY(-10px) scale(1.02); 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -388,14 +379,13 @@ section h2 {
     font-size: 1.2em;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    animation: bounce-in linear forwards; /* Exemplo de animação acionada por scroll */
-    animation-timeline: view();
-    animation-range: entry 0% cover 50%;
-    opacity: 0;
-    transform: translateY(50px);
+    
+   
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
-/* Animação para scroll-driven animation */
+
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -423,7 +413,7 @@ section h2 {
 }
 
 
-/* Footer */
+
 footer {
     background-color: #212529; 
     color: #f8f9fa; 
@@ -433,19 +423,19 @@ footer {
     margin-top: 30px;
 }
 
-/* Media Queries (Mantidos do seu código original com pequenas otimizações) */
+
 
 @media (min-width: 768px) {
     header {
-        /* Bootstrap cuida da maioria do layout do header em telas maiores */
+        
     }
 
     .navbar-brand {
-        font-size: 2.5em; /* Aumenta o tamanho da fonte para o brand em telas maiores */
+        font-size: 2.5em; 
     }
 
     .navbar-nav .nav-link {
-        margin: 0 10px; /* Ajusta o espaçamento entre os links */
+        margin: 0 10px; 
     }
 
     .conteudo-secao {
@@ -498,7 +488,7 @@ footer {
     .foto-3 { grid-row: span 2; } 
     .foto-5 { grid-column: span 2; } 
 
-    /* Ajustes para a seção de efeitos em telas maiores */
+    
     .animation-container {
         flex-direction: row;
     }
@@ -536,7 +526,7 @@ footer {
 }
 
 
-@media (max-width: 991px) { /* Para o menu hamburguer do Bootstrap */
+@media (max-width: 991px) { 
     .navbar-collapse {
         background-color: #fff;
         border-top: 1px solid #eee;
@@ -552,11 +542,11 @@ footer {
 
 @media (max-width: 767px) {
     body {
-        padding-top: 60px; /* Ajuste para o header menor em mobile */
+        padding-top: 60px; 
     }
 
     section {
-        scroll-margin-top: 60px; /* Ajuste para o header menor em mobile */
+        scroll-margin-top: 60px; 
         padding: 20px 15px;
     }
 
@@ -614,7 +604,7 @@ footer {
         min-height: 200px;
     }
 
-    /* Ajustes para a seção de efeitos em telas menores */
+  
     .animated-box, .transition-box {
         width: 150px;
         height: 150px;
